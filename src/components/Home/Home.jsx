@@ -1,8 +1,8 @@
 import React from "react";
 import { About } from "./About";
 import { Contact } from "./Contact";
-import { Organisations } from "./Organisations";
-export const Home: React.FC = () => {
+import { Organisations } from "./Organisations.jsx";
+export const Home = () => {
     return (
         <>
             <About id="section-1" style={{ background: "tomato", height: "100vh" }}/>

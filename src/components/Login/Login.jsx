@@ -1,22 +1,17 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState } from "react";
 
-interface UserData {
-    username: string;
-    password: string;
-}
-
-export const Login: React.FC = () => {
-    const [userData, setUserData] = useState<UserData>({
+export const Login = () => {
+    const [userData, setUserData] = useState({
         username: "",
         password: "",
     });
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
         setUserData({ ...userData, [name]: value });
     };
 
-    const handleLoginSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    const handleLoginSubmit = (e) => {
         e.preventDefault();
 
         // Tutaj możesz dodać logikę logowania, np. wysłanie danych na serwer

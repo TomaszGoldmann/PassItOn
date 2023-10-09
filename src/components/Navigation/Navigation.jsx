@@ -6,7 +6,7 @@ export const Navigation = () => {
     const navigate = useNavigate();
     const scroller = Scroll.scroller;
 
-    const goToHomeAndScroll = async (id: string) => { // Dodaj typ string
+    const goToHomeAndScroll = async (id) => { // Dodaj typ string
         await navigate("/");
         await scroller.scrollTo(id, {
             duration: 1500,

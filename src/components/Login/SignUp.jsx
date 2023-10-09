@@ -1,6 +1,6 @@
 import React from "react";
 
-export const SignUp: React.FC = () => {
+export const SignUp = () => {
 
     return (
         <div>
