@@ -1,0 +1,50 @@
+@import "./src/scss/settings/colors";
+
+.nav {
+  position: fixed;
+  z-index: 1;
+  top: 37px;
+  right: 1px;
+  width: 663px;
+  height: 86px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    border: 2px solid transparent;
+
+    &__link {
+      text-decoration: none;
+      color: $font-color-prime;
+      font-size: 18px;
+      border: 2px solid transparent;
+      padding: 9px;
+      &:hover {
+        border: 2px solid $font-color-second;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .login {
+    color: $font-color-second;
+    font-size: 14px;
+    &:hover {
+      border: 2px solid #FAD648;
+    }
+  }
+}

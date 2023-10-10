@@ -1,15 +1,23 @@
 export const menuItems = [
     {
-        id: "section-1",
-        name: "Section 1"
+        id: "start",
+        name: "Start"
     },
     {
-        id: "section-2",
-        name: "Section 2"
+        id: "o co chodzi?",
+        name: "O co chodzi?"
     },
     {
-        id: "section-3",
-        name: "Section 3"
-    }
+        id: "o nas",
+        name: "O nas"
+    },
+    {
+        id: "fundacja i organizacje",
+        name: "Fundacja i organizacje"
+    },
+    {
+        id: "kontakt",
+        name: "Kontakt"
+    },
 ];
 

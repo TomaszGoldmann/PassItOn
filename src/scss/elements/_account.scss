@@ -1,0 +1,69 @@
+@import "../settings/colors";
+
+.account {
+  width: 384px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    margin-bottom: 25px;
+    color: $font-color-prime;
+    font-size: 40px;
+  }
+
+  &__form {
+    margin: 60px 0 40px;
+    padding: 40px 70px;
+    background-color: $login-color-bg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    &-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 250px;
+      height: 62px;
+    }
+  }
+
+  &__label {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__input {
+    border: none;
+    border-bottom: 1px solid $font-color-prime;
+    background-color: $login-color-bg;
+    padding-bottom: 5px;
+  }
+
+  &__buttons {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    background-color: white;
+    border: none;
+    padding: 12px;
+    color: $font-color-prime;
+    text-decoration: none;
+    &:first-child {
+      border: 1px solid transparent;
+    }
+  }
+}
+
+.center {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
