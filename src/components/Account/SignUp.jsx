@@ -16,10 +16,6 @@ export const SignUp = () => {
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
-
-        // Tutaj możesz dodać logikę logowania, np. wysłanie danych na serwer
-
-        // Po zalogowaniu możesz przekierować użytkownika na inną stronę
     };
 
     return (
