@@ -1,6 +1,6 @@
-@import "elements/_all.scss";
 @import "generic/_all.scss";
 @import "settings/_all.scss";
+@import "elements/_all.scss";
 
 body {
   font-family: $font-base;
@@ -23,7 +23,7 @@ body {
   position: fixed;
 }
 
-.flex--end{
+.flex--end {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -39,4 +39,22 @@ body {
   color: $font-color-prime;
   text-decoration: none;
   border: 1px solid $font-color-prime;
+}
+
+.input {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid $font-color-prime;
+  padding-bottom: 5px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.textarea {
+  height: 100px;
+  font-family: $font-base;
+  color: $font-color-prime;
 }

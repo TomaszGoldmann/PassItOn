@@ -25,9 +25,9 @@ export const SignUp = () => {
                 <img className="account__decoration" src={Decoration} alt="Decoration"/>
                 <form className="account__form" onSubmit={handleLoginSubmit}>
                     <div className="account__form-group">
-                        <label className="account__label">Email</label>
+                        <label className="account__label label">Email</label>
                         <input
-                            className="account__input"
+                            className="account__input input"
                             type="text"
                             name="username"
                             value={userData.username}
@@ -35,9 +35,9 @@ export const SignUp = () => {
                         />
                     </div>
                     <div className="account__form-group">
-                        <label className="account__label">Hasło</label>
+                        <label className="account__label label">Hasło</label>
                         <input
-                            className="account__input"
+                            className="account__input input"
                             type="password"
                             name="password"
                             value={userData.password}
@@ -45,9 +45,9 @@ export const SignUp = () => {
                         />
                     </div>
                     <div className="account__form-group">
-                        <label className="account__label">Powtórz Hasło</label>
+                        <label className="account__label label">Powtórz Hasło</label>
                         <input
-                            className="account__input"
+                            className="account__input input"
                             type="password"
                             name="password"
                             value={userData.password}

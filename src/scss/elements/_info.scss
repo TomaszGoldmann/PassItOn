@@ -1,5 +1,10 @@
 @import "src/scss/settings/fonts";
 
+.info-bg {
+  background-image: url("src/assets/3 Columns Background.png");
+  background-size: cover;
+  background-position: center;
+}
 
 .benefits {
   padding: 75px 0 90px;
@@ -7,9 +12,6 @@
   justify-content: center;
   align-items: center;
   gap: 150px;
-  background-image: url("src/assets/3 Columns Background.png");
-  background-size: cover;
-  background-position: center;
 
   &__item {
     display: flex;

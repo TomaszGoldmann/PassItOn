@@ -6,7 +6,6 @@ import {Info} from "./HomeComponents/Info.jsx";
 import {About} from "./HomeComponents/About.jsx";
 import {Organisations} from "./HomeComponents/Organisations.jsx";
 import {Contact} from "./HomeComponents/Contact.jsx";
-import {Footer} from "./HomeComponents/Footer.jsx";
 
 // const ScrollamaDemo = () => {
 //     const [currentStepIndex, setCurrentStepIndex] = useState(null);
@@ -86,7 +85,6 @@ export const Home = () => {
             <About id="o nas" style={{background: "tomato", height: "100vh"}}/>
             <Organisations id="fundacja i organizacje" style={{background: "cornflowerblue", height: "100vh"}}/>
             <Contact id="kontakt" style={{background: "olive", height: "100vh"}}/>
-            <Footer />
         </>
     );
 }
