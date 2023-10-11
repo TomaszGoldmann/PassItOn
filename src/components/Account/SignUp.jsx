@@ -57,7 +57,7 @@ export const SignUp = () => {
                 </form>
             </div>
             <div className="account__buttons">
-                <Link to={"/zaloguj sie"} className="account__button button" type="submit">Zaloguj się</Link>
+                <Link to={"/logowanie"} className="account__button button" type="submit">Zaloguj się</Link>
                 <button className="account__button button" type="submit">Załóż konto</button>
             </div>
         </section>

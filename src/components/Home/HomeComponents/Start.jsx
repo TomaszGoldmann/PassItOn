@@ -15,10 +15,10 @@ export const Start = ({id}) => {
                     </h1>
                     <img src={Decoration} className="hero__decoration--img" alt={"decoration"}/>
                     <div className="hero__buttons">
-                        <Link to="/zaloguj sie" className="hero__button button">
+                        <Link to="/logowanie" className="hero__button button">
                             Oddaj<br/>rzeczy
                         </Link>
-                        <Link to="/zaloguj sie" className="hero__button button">
+                        <Link to="/logowanie" className="hero__button button">
                             Zorganizuj<br/>zbiórkę
                         </Link>
                     </div>

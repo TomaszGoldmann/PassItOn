@@ -52,7 +52,7 @@ export const Login = () => {
                 </form>
             </section>
             <div className="account__buttons">
-                <Link to={"/zaloz konto"} className="account__button button" type="submit">Załóż konto</Link>
+                <Link to={"/rejestracja"} className="account__button button" type="submit">Załóż konto</Link>
                 <button className="account__button button" type="submit">Zaloguj się</button>
             </div>
         </div>

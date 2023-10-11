@@ -3,6 +3,7 @@ import {Home} from "./components/Home/Home.jsx";
 import {Login} from "./components/Account/Login.jsx";
 import {SignUp} from "./components/Account/SignUp.jsx";
 import {Navigation} from "./components/Navigation/Navigation.jsx";
+import {Logout} from "./components/Account/Logout.jsx";
 import "./scss/main.scss"
 
 function App() {
@@ -14,8 +15,9 @@ function App() {
             </div>
             <Routes>
                 <Route path={"/"} element={<Home/>}/>
-                <Route path={"/zaloguj sie"} element={<Login/>}/>
-                <Route path={"/zaloz konto"} element={<SignUp/>}/>
+                <Route path={"/logowanie"} element={<Login/>}/>
+                <Route path={"/rejestracja"} element={<SignUp/>}/>
+                <Route path={"/wylogowano"} element={<Logout/>}/>
             </Routes>
         </Router>
     )

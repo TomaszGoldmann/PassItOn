@@ -26,10 +26,10 @@
       text-decoration: none;
       color: $font-color-prime;
       font-size: 18px;
-      border: 2px solid transparent;
+      border: 1px solid transparent;
       padding: 9px;
       &:hover {
-        border: 2px solid $font-color-second;
+        border: 1px solid $font-color-second;
       }
 
       &:focus {
@@ -42,7 +42,7 @@
     color: $font-color-second;
     font-size: 14px;
     &:hover {
-      border: 2px solid #FAD648;
+      border: 1px solid #FAD648;
     }
   }
 }

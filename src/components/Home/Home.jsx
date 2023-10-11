@@ -2,10 +2,11 @@ import React from "react";
 // import {Scrollama, Step} from 'react-scrollama';
 // import {useNavigate} from "react-router-dom";
 import {Start} from "./HomeComponents/Start.jsx";
-import {Info} from "./HomeComponents/Info.jsx";
+import {Benefits} from "./HomeComponents/Benefits.jsx";
 import {About} from "./HomeComponents/About.jsx";
 import {Organisations} from "./HomeComponents/Organisations.jsx";
 import {Contact} from "./HomeComponents/Contact.jsx";
+import {Info} from "./HomeComponents/Info.jsx";
 
 // const ScrollamaDemo = () => {
 //     const [currentStepIndex, setCurrentStepIndex] = useState(null);
@@ -81,10 +82,11 @@ export const Home = () => {
     return (
         <>
             <Start id="start"/>
+            <Benefits/>
             <Info id="o co chodzi?" style={{background: "olive", height: "100vh"}}/>
             <About id="o nas" style={{background: "tomato", height: "100vh"}}/>
-            <Organisations id="fundacja i organizacje" style={{background: "cornflowerblue", height: "100vh"}}/>
-            <Contact id="kontakt" style={{background: "olive", height: "100vh"}}/>
+            <Organisations id="fundacja i organizacje"/>
+            <Contact id="kontakt"/>
         </>
     );
 }

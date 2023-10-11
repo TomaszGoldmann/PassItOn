@@ -1,0 +1,104 @@
+.organisations {
+  scale: 0.8;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__group-category {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+  }
+
+  &__category {
+    font-size: 24px;
+    width: 208px;
+    height: 79px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid $font-color-prime;
+    }
+  }
+
+  &__description {
+    width: 640px;
+    margin: 65px 0;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    margin: 0 auto;
+  }
+
+  &__item {
+    width: 1344px;
+    height: 81px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $font-color-prime;
+    font-family: $font-alt;
+    font-weight: 300;
+
+    &-info {
+      gap: 6px;
+
+      span:last-child {
+        font-style: italic;
+      }
+    }
+
+    &-label {
+      font-size: 26px;
+    }
+
+    &-description {
+      font-size: 18px;
+    }
+  }
+
+  &__item-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__page {
+    width: 40px;
+    height: 50px;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid $font-color-prime;
+    }
+  }
+}

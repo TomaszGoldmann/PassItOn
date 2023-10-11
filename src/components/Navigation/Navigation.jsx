@@ -19,12 +19,12 @@ export const Navigation = () => {
         <nav className="nav">
             <ul className="nav__list flex">
                 <li className="nav__item">
-                    <Link to="/zaloguj sie" className="nav__item__link login">
+                    <Link to="/logowanie" className="nav__item__link login">
                         Zaloguj
                     </Link>
                 </li>
                 <li className="nav__item">
-                    <Link to="/zaloz konto" className="nav__item__link login">
+                    <Link to="/rejestracja" className="nav__item__link login">
                         Załóż konto
                     </Link>
                 </li>
