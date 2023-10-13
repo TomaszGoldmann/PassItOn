@@ -1,8 +1,11 @@
 import {Link, useNavigate} from "react-router-dom";
 import * as Scroll from "react-scroll";
 import {menuItems} from "./MenuSections";
+import {useContext} from "react";
+import MyContext from "../../Providers/myContext.jsx";
 
 export const Navigation = () => {
+    const {user} = useContext(MyContext)
     const navigate = useNavigate();
     const scroller = Scroll.scroller;
 
@@ -15,9 +18,16 @@ export const Navigation = () => {
         });
     };
 
+    console.log(user)
+
     return (
         <nav className="nav">
             <ul className="nav__list flex">
+                {user && <li className="nav__item">
+                    <Link to="/wylogowano" className="nav__item__link login">
+                        {user.email}
+                    </Link>
+                </li>}
                 <li className="nav__item">
                     <Link to="/logowanie" className="nav__item__link login">
                         Zaloguj

@@ -10,7 +10,7 @@ export const Start = ({id}) => {
             <section className="hero">
                 <img src={HeroImage} className="hero__image" alt={"hero__image"}/>
                 <div className="hero__content">
-                    <h1 className="hero__title">
+                    <h1 className="hero__title title">
                         Zacznij pomagać!<br/> Oddaj niechciane rzeczy w zaufane ręce
                     </h1>
                     <img src={Decoration} className="hero__decoration--img" alt={"decoration"}/>

@@ -4,6 +4,34 @@ import Decoration from "../../../assets/Decoration.svg";
 export const Organisations = ({id}) => {
     const tab = [1, 2, 3]
     const pages = new Array(Math.ceil(tab.length / 3)).fill(0);
+    // const [activeCategory, setActiveCategory] = useState('fundacje');
+    // const [page, setPage] = useState(1);
+
+    // const data =  [
+    //     {
+    //         id: 'fundacje',
+    //         name: "Fundacje",
+    //         description: "Lorem ipsum",
+    //         entities: [
+    //             {
+    //                 id: 1,
+    //                 name: "Fundacja XYZ",
+    //                 description: "Lorem ipsum",
+    //                 items: ['zabawki', 'książki']
+    //             },
+    //             {
+    //                 id: 2,
+    //                 name: "Fundacja ABC",
+    //                 description: "Lorem ipsum",
+    //                 items: ['zabawki', 'książki']
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         id: 'zbiorki',
+    //         name: "Zbiórki"
+    //     }
+    // ];
 
     return (
         <div id={id} className="container">
@@ -13,7 +41,7 @@ export const Organisations = ({id}) => {
                 </h1>
                 <img src={Decoration} className="organisations__decoration img" alt="decoration"/>
                 <div className="organisations__content">
-                    <div className="organisations__group-category">
+                    <div className="organisations__categories">
                         <h2 className="organisations__category">Fundacjom</h2>
                         <h2 className="organisations__category">Organizacjom<br/>pozarządowym</h2>
                         <h2 className="organisations__category">Lokalnym<br/>zbiórkom</h2>
@@ -35,7 +63,7 @@ export const Organisations = ({id}) => {
                     </ul>
                     <div className="organisations__pages">
                         {pages.map((el, i) => (
-                            <div className="organisations__page">{i + 1}</div>
+                            <div className="organisations__page" key={i}>{i + 1}</div>
                         ))}
                     </div>
                 </div>

@@ -15,8 +15,8 @@ body {
   background-color: grey;
 }
 
-.bgTomato {
-  background-color: tomato;
+.bgLightGrey {
+  background-color: $bg-darker;
 }
 
 .fixed {
@@ -44,6 +44,7 @@ body {
 .title {
   font-size: 38px;
   text-align: center;
+  line-height: 55px;
   margin-bottom: 25px;
 }
 

@@ -5,22 +5,24 @@ import {SignUp} from "./components/Account/SignUp.jsx";
 import {Navigation} from "./components/Navigation/Navigation.jsx";
 import {Logout} from "./components/Account/Logout.jsx";
 import "./scss/main.scss"
+import {AccountProvider} from "./Providers/AccountProvider.jsx";
 
 function App() {
 
     return (
         <Router>
-            <div className={"flex--end container"}>
-                <Navigation/>
-            </div>
-            <Routes>
-                <Route path={"/"} element={<Home/>}/>
-                <Route path={"/logowanie"} element={<Login/>}/>
-                <Route path={"/rejestracja"} element={<SignUp/>}/>
-                <Route path={"/wylogowano"} element={<Logout/>}/>
-            </Routes>
-        </Router>
-    )
+            <AccountProvider>
+                <div className={"flex--end container"}>
+                    <Navigation/>
+                </div>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/logowanie" element={<Login/>}/>
+                    <Route path="/rejestracja" element={<SignUp/>}/>
+                    <Route path="/wylogowano" element={<Logout/>}/>
+                </Routes>
+            </AccountProvider>
+        </Router>)
 }
 
 export default App
