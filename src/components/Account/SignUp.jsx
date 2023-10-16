@@ -24,7 +24,6 @@ export const SignUp = () => {
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
-        console.log(name)
         setUserData({...userData, [name]: value});
     };
 
@@ -90,7 +89,7 @@ export const SignUp = () => {
                         <label className="account__label label">Hasło</label>
                         <input
                             className={`account__input input ${error.password ? "input-error" : ""}`}
-                            type="text"
+                            type="password"
                             name="password"
                             value={userData.password}
                             onChange={handleInputChange}
@@ -102,7 +101,7 @@ export const SignUp = () => {
                         <label className="account__label label">Powtórz Hasło</label>
                         <input
                             className={`account__input input ${error.confirmPassword ? "input-error" : ""}`}
-                            type="text"
+                            type="password"
                             name="confirmPassword"
                             value={userData.confirmPassword}
                             onChange={handleInputChange}
