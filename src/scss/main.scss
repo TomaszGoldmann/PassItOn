@@ -49,17 +49,29 @@ body {
 }
 
 .input {
+  width: 100%;
   border: none;
   background-color: transparent;
   border-bottom: 1px solid $font-color-prime;
   padding-bottom: 5px;
   &-error{
     border-bottom: 1px solid tomato;
+    margin-top: 15px;
   }
 }
 
 .error{
   color: tomato;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.success{
+  margin: 10px 0;
+  text-align: center;
+  color: seagreen;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .label {

@@ -8,20 +8,23 @@ import validator from 'validator';
 import {MyContext} from "../../Providers/AccountProvider.jsx";
 
 export const SignUp = () => {
-    const {user, setUser} = useContext(MyContext)
+    const {setUser} = useContext(MyContext)
     const navigate = useNavigate()
     const [error, setError] = useState({
         email: false,
         password: false,
+        confirmPassword: false,
     })
 
     const [userData, setUserData] = useState({
         username: "",
         password: "",
+        confirmPassword: ""
     });
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
+        console.log(name)
         setUserData({...userData, [name]: value});
     };
 
@@ -30,7 +33,6 @@ export const SignUp = () => {
     };
 
     const handleSignUp = () => {
-        console.log(22)
         const auth = getAuth(app);
         createUserWithEmailAndPassword(auth, userData.username, userData.password)
             .then(async (userCredential) => {
@@ -54,13 +56,11 @@ export const SignUp = () => {
     const handleValidate = () => {
         const errors = {
             email: !validator.isEmail(userData.username),
-            password: userData.password.length > 5
+            password: userData.password.length < 5,
+            confirmPassword: userData.password !== userData.confirmPassword
         }
 
-        console.log(errors.email)
-        console.log(errors.password)
-
-        if (!errors.email && !errors.password) {
+        if (!errors.email && !errors.password && !errors.confirmPassword) {
             handleSignUp()
         }
 
@@ -90,7 +90,7 @@ export const SignUp = () => {
                         <label className="account__label label">Hasło</label>
                         <input
                             className={`account__input input ${error.password ? "input-error" : ""}`}
-                            type="password"
+                            type="text"
                             name="password"
                             value={userData.password}
                             onChange={handleInputChange}
@@ -101,12 +101,14 @@ export const SignUp = () => {
                     <div className="account__form-group">
                         <label className="account__label label">Powtórz Hasło</label>
                         <input
-                            className="account__input input"
-                            type="password"
-                            name="password"
-                            value={userData.password}
+                            className={`account__input input ${error.confirmPassword ? "input-error" : ""}`}
+                            type="text"
+                            name="confirmPassword"
+                            value={userData.confirmPassword}
                             onChange={handleInputChange}
                         />
+                        {error.confirmPassword &&
+                            <span className={`${error.confirmPassword ? "error" : ""}`}>Hasła się różnią!</span>}
                     </div>
                 </form>
             </div>
@@ -114,7 +116,6 @@ export const SignUp = () => {
                 <Link to={"/logowanie"} className="account__button button" type="submit">Zaloguj się</Link>
                 <button className="account__button button" type="submit" onClick={handleValidate}>Załóż konto</button>
             </div>
-            {user && <h1>Zalogowano email: {user.email}</h1>}
         </section>
     );
 };

@@ -2,9 +2,16 @@ import React, {useState} from "react";
 import Decoration from "../../assets/Decoration.svg"
 import "/src/scss/elements/_account.scss"
 import "/src/scss/main.scss"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import validator from "validator";
 
 export const Login = () => {
+    const navigate = useNavigate()
+    const [error, setError] = useState({
+        email: false,
+        password: false,
+    })
+
     const [userData, setUserData] = useState({
         username: "",
         password: "",
@@ -15,45 +22,63 @@ export const Login = () => {
         setUserData({...userData, [name]: value});
     };
 
-    const handleLoginSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Tutaj możesz dodać logikę logowania, np. wysłanie danych na serwer
-
-        // Po zalogowaniu możesz przekierować użytkownika na inną stronę
     };
+
+    const handleLogin = () => {
+        navigate("/")
+    };
+
+    const handleValidate = () => {
+        const errors = {
+            email: !validator.isEmail(userData.username),
+            password: userData.password.length < 5,
+        }
+
+        if (!errors.email && !errors.password && !errors.confirmPassword) {
+            handleLogin()
+        }
+
+        setError(errors)
+    }
 
     return (
         <div className={"center"}>
             <section className="account">
                 <h1 className="account__title">Zaloguj się</h1>
                 <img className="account__decoration" src={Decoration} alt="Decoration"/>
-                <form className="account__form" onSubmit={handleLoginSubmit}>
+                <form className="account__form" onSubmit={handleSubmit}>
                     <div className="account__form-group">
                         <label className="account__label label">Email</label>
                         <input
-                            className="account__input input"
+                            className={`account__input input ${error.email ? "input-error" : ""}`}
                             type="text"
                             name="username"
                             value={userData.username}
                             onChange={handleInputChange}
                         />
+                        {error.email &&
+                            <span
+                                className={`${error.email ? "error" : ""}`}>Podany email jest nie prawidłowy!</span>}
                     </div>
                     <div className="account__form-group">
                         <label className="account__label label">Hasło</label>
                         <input
-                            className="account__input input"
+                            className={`account__input input ${error.password ? "input-error" : ""}`}
                             type="password"
                             name="password"
                             value={userData.password}
                             onChange={handleInputChange}
                         />
+                        {error.password &&
+                            <span className={`${error.password ? "error" : ""}`}>Podane hasło jest za krótkie!</span>}
                     </div>
                 </form>
             </section>
             <div className="account__buttons">
                 <Link to={"/rejestracja"} className="account__button button" type="submit">Załóż konto</Link>
-                <button className="account__button button" type="submit">Zaloguj się</button>
+                <button className="account__button button" type="submit" onClick={handleValidate}>Zaloguj się</button>
             </div>
         </div>
     );
