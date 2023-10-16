@@ -4,9 +4,9 @@ import React from "react";
 import {Start} from "./HomeComponents/Start.jsx";
 import {Benefits} from "./HomeComponents/Benefits.jsx";
 import {About} from "./HomeComponents/About.jsx";
-import {Organisations} from "./HomeComponents/Organisations.jsx";
 import {Contact} from "./HomeComponents/Contact.jsx";
-import {Info} from "./HomeComponents/Info.jsx";
+import {Info} from "./HomeComponents/Info/Info.jsx";
+import {Organisations} from "./HomeComponents/Organistations/Organisations.jsx";
 
 // const ScrollamaDemo = () => {
 //     const [currentStepIndex, setCurrentStepIndex] = useState(null);

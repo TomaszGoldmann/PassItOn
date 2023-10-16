@@ -1,8 +1,8 @@
 import React from 'react';
-import Icon1 from '../assets/Icon-1.png';
-import Icon2 from '../assets/Icon-2.png';
-import Icon3 from '../assets/Icon-3.png';
-import Icon4 from '../assets/Icon-4.png';
+import Icon1 from '../../../../assets/Icon-1.png';
+import Icon2 from '../../../../assets/Icon-2.png';
+import Icon3 from '../../../../assets/Icon-3.png';
+import Icon4 from '../../../../assets/Icon-4.png';
 
 export const icons = [
     {

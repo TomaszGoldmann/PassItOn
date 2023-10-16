@@ -1,0 +1,19 @@
+.important {
+  height: 5vh;
+  background-color: #FAD648;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 140px;
+
+  &__title {
+    line-height: 32px;
+    font-size: 36px;
+    font-weight: 600;
+  }
+
+  &__text {
+    line-height: 30px;
+    font-size: 22px;
+  }
+}

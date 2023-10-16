@@ -2,10 +2,12 @@ import {Link, useNavigate} from "react-router-dom";
 import * as Scroll from "react-scroll";
 import {menuItems} from "./MenuSections";
 import {useContext} from "react";
-import MyContext from "../../Providers/myContext.jsx";
+import {getAuth, signOut} from "firebase/auth";
+import {app} from "../../Firebase/Firebase.jsx";
+import {MyContext} from "../../Providers/AccountProvider.jsx";
 
 export const Navigation = () => {
-    const {user} = useContext(MyContext)
+    const {user, setUser} = useContext(MyContext)
     const navigate = useNavigate();
     const scroller = Scroll.scroller;
 
@@ -18,15 +20,25 @@ export const Navigation = () => {
         });
     };
 
-    console.log(user)
+    const handleSignOut = () => {
+        signOut(getAuth(app)).then(async () => {
+            await setUser(null)
+            navigate("/wylogowano")
+        }).catch((error) => {
+            console.log(error.message)
+        });
+    }
 
     return (
         <nav className="nav">
             <ul className="nav__list flex">
                 {user && <li className="nav__item">
-                    <Link to="/wylogowano" className="nav__item__link login">
+                    <span className="nav__item__link login">
                         {user.email}
-                    </Link>
+                    </span>
+                    <span onClick={handleSignOut} className="nav__item__link login">
+                        Wyloguj
+                    </span>
                 </li>}
                 <li className="nav__item">
                     <Link to="/logowanie" className="nav__item__link login">
@@ -40,18 +52,17 @@ export const Navigation = () => {
                 </li>
             </ul>
             <div className={"nav__items"}>
-            {menuItems.map(({id, name}) => (
-                <Link
-                    key={id}
-                    to={`/#${id}`}
-                    onClick={() => goToHomeAndScroll(id)}
-                    className="nav__item nav__item__link"
-                >
-                    {name}
-                </Link>
-            ))}
+                {menuItems.map(({id, name}) => (
+                    <Link
+                        key={id}
+                        to={`/#${id}`}
+                        onClick={() => goToHomeAndScroll(id)}
+                        className="nav__item nav__item__link"
+                    >
+                        {name}
+                    </Link>
+                ))}
             </div>
         </nav>
-
     );
 };

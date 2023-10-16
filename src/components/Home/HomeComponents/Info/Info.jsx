@@ -1,7 +1,7 @@
 import React from "react";
-import Decoration from "../../../assets/Decoration.svg";
+import Decoration from "../../../../assets/Decoration.svg";
 import {Link} from "react-router-dom";
-import {icons} from "../../../Providers/InfoProvider.jsx";
+import {icons} from "./InfoItems.jsx";
 
 export const Info = ({id}) => {
     return (
@@ -24,7 +24,7 @@ export const Info = ({id}) => {
                     </div>
                 ))}
             </div>
-            <Link to="/logowanie" className="info__button button">
+            <Link to="/oddaj rzeczy" className="info__button button">
                 Oddaj<br/>rzeczy
             </Link>
         </div>

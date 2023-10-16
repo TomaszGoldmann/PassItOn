@@ -2,7 +2,7 @@
   position: absolute;
   z-index: 1;
   top: 37px;
-  margin-right: 2px;
+  right: 20px;
   width: 663px;
   height: 86px;
   display: flex;
@@ -28,6 +28,7 @@
       font-size: 18px;
       border: 1px solid transparent;
       padding: 9px;
+      cursor: pointer;
       &:hover {
         border: 1px solid $font-color-second;
       }

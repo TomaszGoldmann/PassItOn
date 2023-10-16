@@ -6,6 +6,8 @@ import {Navigation} from "./components/Navigation/Navigation.jsx";
 import {Logout} from "./components/Account/Logout.jsx";
 import "./scss/main.scss"
 import {AccountProvider} from "./Providers/AccountProvider.jsx";
+import {GiveItAway} from "./components/GiveItAway/GiveItAway.jsx";
+import {PrivateRoute} from "./Providers/PrivateRoute.jsx";
 
 function App() {
 
@@ -20,6 +22,7 @@ function App() {
                     <Route path="/logowanie" element={<Login/>}/>
                     <Route path="/rejestracja" element={<SignUp/>}/>
                     <Route path="/wylogowano" element={<Logout/>}/>
+                    <Route path="/oddaj rzeczy" element={<PrivateRoute><GiveItAway/></PrivateRoute>}/>
                 </Routes>
             </AccountProvider>
         </Router>)

@@ -35,7 +35,7 @@ body {
 }
 
 .button {
-  background-color: white;
+  background-color: transparent;
   color: $font-color-prime;
   text-decoration: none;
   border: 1px solid $font-color-prime;
@@ -53,6 +53,13 @@ body {
   background-color: transparent;
   border-bottom: 1px solid $font-color-prime;
   padding-bottom: 5px;
+  &-error{
+    border-bottom: 1px solid tomato;
+  }
+}
+
+.error{
+  color: tomato;
 }
 
 .label {

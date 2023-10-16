@@ -24,6 +24,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid transparent;
+    cursor: pointer;
 
     &:hover {
       border: 1px solid $font-color-prime;
@@ -101,4 +102,19 @@
       border: 1px solid $font-color-prime;
     }
   }
+}
+
+.page{
+  cursor: default;
+  border: none;
+  background-color: $font-color-second;
+  color: white;
+  &:hover {
+    border: none;
+  }
+}
+
+.found{
+  cursor: default;
+  border: 1px solid $font-color-prime;
 }
