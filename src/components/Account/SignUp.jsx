@@ -43,7 +43,7 @@ export const SignUp = () => {
                     password: "",
                 })
 
-                navigate("/")
+                navigate("/PassItOn/")
                 //
             })
             .catch((error) => {
@@ -55,7 +55,7 @@ export const SignUp = () => {
     const handleValidate = () => {
         const errors = {
             email: !validator.isEmail(userData.username),
-            password: userData.password.length < 5,
+            password: userData.password.length < 6,
             confirmPassword: userData.password !== userData.confirmPassword
         }
 
@@ -112,7 +112,7 @@ export const SignUp = () => {
                 </form>
             </div>
             <div className="account__buttons">
-                <Link to={"/logowanie"} className="account__button button" type="submit">Zaloguj się</Link>
+                <Link to={"/PassItOn/logowanie"} className="account__button button" type="submit">Zaloguj się</Link>
                 <button className="account__button button" type="submit" onClick={handleValidate}>Załóż konto</button>
             </div>
         </section>

@@ -24,7 +24,7 @@ export const Info = ({id}) => {
                     </div>
                 ))}
             </div>
-            <Link to="/oddaj rzeczy" className="info__button button">
+            <Link to="/PassItOn/oddaj rzeczy" className="info__button button">
                 Oddaj<br/>rzeczy
             </Link>
         </div>

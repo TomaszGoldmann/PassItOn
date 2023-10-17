@@ -27,13 +27,13 @@ export const Login = () => {
     };
 
     const handleLogin = () => {
-        navigate("/")
+        navigate("/PassItOn/")
     };
 
     const handleValidate = () => {
         const errors = {
             email: !validator.isEmail(userData.username),
-            password: userData.password.length < 5,
+            password: userData.password.length < 6,
         }
 
         if (!errors.email && !errors.password && !errors.confirmPassword) {
@@ -77,7 +77,7 @@ export const Login = () => {
                 </form>
             </section>
             <div className="account__buttons">
-                <Link to={"/rejestracja"} className="account__button button" type="submit">Załóż konto</Link>
+                <Link to={"/PassItOn/rejestracja"} className="account__button button" type="submit">Załóż konto</Link>
                 <button className="account__button button" type="submit" onClick={handleValidate}>Zaloguj się</button>
             </div>
         </div>

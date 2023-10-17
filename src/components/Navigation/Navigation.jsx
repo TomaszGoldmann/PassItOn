@@ -13,7 +13,7 @@ export const Navigation = () => {
 
     const goToHomeAndScroll = async (id) => { // Dodaj typ string
         console.log(id)
-        await navigate("/");
+        await navigate("/PassItOn/");
         await scroller.scrollTo(id, {
             duration: 1500,
             smooth: true
@@ -23,7 +23,7 @@ export const Navigation = () => {
     const handleSignOut = () => {
         signOut(getAuth(app)).then(async () => {
             await setUser(null)
-            navigate("/wylogowano")
+            navigate("/PassItOn/wylogowano")
         }).catch((error) => {
             console.log(error.message)
         });
@@ -41,12 +41,12 @@ export const Navigation = () => {
                     </span>
                 </li>}
                 <li className="nav__item">
-                    <Link to="/logowanie" className="nav__item__link login">
+                    <Link to="/PassItOn/logowanie" className="nav__item__link login">
                         Zaloguj
                     </Link>
                 </li>
                 <li className="nav__item">
-                    <Link to="/rejestracja" className="nav__item__link login">
+                    <Link to="/PassItOn/rejestracja" className="nav__item__link login">
                         Załóż konto
                     </Link>
                 </li>
@@ -55,7 +55,7 @@ export const Navigation = () => {
                 {menuItems.map(({id, name}) => (
                     <Link
                         key={id}
-                        to={`/#${id}`}
+                        to={`/PassItOn/#${id}`}
                         onClick={() => goToHomeAndScroll(id)}
                         className="nav__item nav__item__link"
                     >

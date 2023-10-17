@@ -6,7 +6,7 @@ export const PrivateRoute = ({ children }) => {
     const { user } = useContext(MyContext);
 
     if (!user) {
-        return <Navigate to={"/logowanie"} />
+        return <Navigate to={"/PassItOn/logowanie"} />
     }
 
     return children;

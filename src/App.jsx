@@ -18,11 +18,11 @@ function App() {
                     <Navigation/>
                 </div>
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/logowanie" element={<Login/>}/>
-                    <Route path="/rejestracja" element={<SignUp/>}/>
-                    <Route path="/wylogowano" element={<Logout/>}/>
-                    <Route path="/oddaj rzeczy" element={<PrivateRoute><GiveItAway/></PrivateRoute>}/>
+                    <Route path="/PassItOn/" element={<Home/>}/>
+                    <Route path="/PassItOn/logowanie" element={<Login/>}/>
+                    <Route path="/PassItOn/rejestracja" element={<SignUp/>}/>
+                    <Route path="/PassItOn/wylogowano" element={<Logout/>}/>
+                    <Route path="/PassItOn/oddaj rzeczy" element={<PrivateRoute><GiveItAway/></PrivateRoute>}/>
                 </Routes>
             </AccountProvider>
         </Router>)
