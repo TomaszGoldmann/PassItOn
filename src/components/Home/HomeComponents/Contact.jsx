@@ -3,8 +3,12 @@ import BgForm from "../../../assets/Background Image.png";
 import Decoration from "../../../assets/Decoration.svg";
 import {Footer} from "./Footer.jsx";
 import validator from "validator";
+// import {addDoc} from "firebase/firestore";
+// import {colRefMessages} from "../../../Firebase/Firebase.jsx";
+import {serverTimestamp} from "firebase/firestore";
 
 export const Contact = ({id}) => {
+    const API = "http://localhost:3000";
     const [userData, setUserData] = useState({
         username: "",
         email: "",
@@ -31,6 +35,10 @@ export const Contact = ({id}) => {
         }
 
         if (!errors.username && !errors.email && !errors.message) {
+            handleSend({
+                ...userData,
+                time: serverTimestamp()
+            })
             setUserData({
                 username: "",
                 email: "",
@@ -42,6 +50,31 @@ export const Contact = ({id}) => {
         }
 
         setError(errors)
+    }
+
+    const handleSend = (data) => {
+        // try {
+        //     addDoc(colRefMessages, {data})
+        //         .then(() => {
+        //         })
+        // } catch (e) {
+        //     console.log(e)
+        // }
+
+        fetch(`${API}/messages`, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     return (

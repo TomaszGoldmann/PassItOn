@@ -1,7 +1,5 @@
-@import "src/scss/settings/fonts";
-
 .info-bg {
-  background-image: url("src/assets/3 Columns Background.png");
+  background-image: url("src/assets/3-Columns-Background.png");
   background-size: cover;
   background-position: center;
 }
@@ -32,8 +30,10 @@
   }
 
   &__description {
+    text-align: center;
     font-size: 16px;
     font-family: $font-alt;
     font-weight: 300;
+    line-height: 18px;
   }
 }

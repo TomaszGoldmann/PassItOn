@@ -46,4 +46,12 @@
       border: 1px solid #FAD648;
     }
   }
+
+  &__item > span:first-child{
+    border: none;
+    cursor: default;
+    &:hover{
+      border: none;
+    }
+  }
 }
