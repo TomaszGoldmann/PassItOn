@@ -34,7 +34,7 @@ export const FourSteps = () => {
                     <h2 className={"hero__description"}>Wystarczą 4 proste kroki:</h2>
                     <div className="hero__items">
                         {data.map(el => (
-                            <div className={"hero__item"}>
+                            <div key={el.id} className={"hero__item"}>
                                 <span className={"hero__item-title"}>
                                     {el.id}
                                 </span>

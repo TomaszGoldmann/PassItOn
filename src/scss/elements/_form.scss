@@ -12,10 +12,29 @@
     background-position:  right;
     background-size: cover;
     background-repeat: no-repeat;
+    &-currentStep{
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 27px;
+    }
   }
 
   &__step{
     height: 100%;
+    margin-top: 50px;
+    &-title{
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 45px;
+      color: black;
+    }
+  }
+
+  &__message{
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: tomato;
   }
 
   &__buttons {
