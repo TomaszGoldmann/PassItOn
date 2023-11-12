@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Decoration from "../../../assets/Decoration.svg";
 import {Important} from "./Important.jsx";
+import arrowDown from "../../../assets/Arrow Down.png"
 
 const dataMessage = ["Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać.",
     "Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję jak poprawnie spakować rzeczy znajdziesz TUTAJ.",
@@ -8,7 +9,16 @@ const dataMessage = ["Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki t
     "Podaj adres oraz termin odbioru rzeczy."]
 const dataCheckbox = ["ubrania, które nadają się do ponownego użycia", "ubrania, do wyrzucenia", "zabawki", "książki", "Inne"]
 
-function Step1({checkboxes, setCheckboxes}) {
+const titles = [
+    'Zaznacz co chcesz oddać:',
+    'Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:',
+    'Lokalizacja:',
+    'Podaj adres oraz termin odbioru rzecz przez kuriera',
+    'Podsumowanie Twojej darowizny',
+    'Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie informacje o odbiorze.'
+]
+
+function Step1({title, checkboxes, setCheckboxes}) {
     const handleCheckboxChange = (index) => {
         const updatedCheckboxes = [...checkboxes];
         updatedCheckboxes[index] = !updatedCheckboxes[index];
@@ -17,7 +27,7 @@ function Step1({checkboxes, setCheckboxes}) {
 
     return (
         <div className="form__step step2">
-            <h2 className={"form__step-title"}>Zaznacz co chcesz oddać:</h2>
+            <h2 className={"form__step-title"}>{title}</h2>
             {checkboxes.map((isChecked, index) => (
                 <label key={`checkbox${index}`} className="checkbox-label">
                     <input
@@ -28,50 +38,77 @@ function Step1({checkboxes, setCheckboxes}) {
                         className="checkbox-input"
                     />
                     <div className={`checkbox ${isChecked ? 'filled' : ''}`}/>
-                    <span className="checkbox-text">{dataCheckbox[index]}</span>
+                    <span className="checkbox-text span">{dataCheckbox[index]}</span>
                 </label>
             ))}
         </div>
     );
 }
 
-function Step3() {
+function Step2({title, selected, setSelected}) {
+    const [open, setOpen] = useState(false)
+
+    const handleOpen = () => {
+        console.log(selected)
+        setOpen(prevState => !prevState)
+    }
+
+    const handleSelect = (event) => {
+        setOpen(true)
+        setSelected(event.target.innerText)
+    }
+
     return (
         <div className="form__step">
-            {/* Add input fields and form elements for Step 3 */}
+            <h2 className={"form__step-title"}>{title}</h2>
+            <div className={"select"}>
+                <span className="select-text span">Liczba 60l worków</span>
+                <div className="select-box span" onClick={handleOpen}>
+                    <span className="select-value span">{selected ? selected : "— wybierz —"}</span>
+                    <img src={arrowDown} alt={"arrow down"}
+                         style={{transition: "0.5s", transform: `rotate(${open ? '180deg' : '0deg'})`}}/>
+                    {open && <div className="select-options">
+                        <span className="select-option" onClick={handleSelect}>1</span>
+                        <span className="select-option" onClick={handleSelect}>2</span>
+                        <span className="select-option" onClick={handleSelect}>3</span>
+                        <span className="select-option" onClick={handleSelect}>4</span>
+                        <span className="select-option" onClick={handleSelect}>5</span>
+                    </div>}
+                </div>
+            </div>
         </div>
     );
 }
 
-function Step2() {
+function Step3({title}) {
     return (
         <div className="form__step">
-            {/* Add input fields and form elements for Step 1 */}
+            <h2 className={"form__step-title"}>{title}</h2>
         </div>
     );
 }
 
-function Step4() {
+function Step4({title}) {
     return (
         <div className="form__step">
-            {/* Add input fields and form elements for Step 4 */}
+            <h2 className={"form__step-title"}>{title}</h2>
         </div>
     );
 }
 
-function Step5() {
+function Step5({title}) {
     return (
         <div className="form__step">
-            {/* Add input fields and form elements for Step 4 */}
+            <h2 className={"form__step-title"}>{title}</h2>
         </div>
     );
 }
 
-function Step6() {
+function Step6({title}) {
     return (
         <div className="form__step hero__content">
             <h1 className="hero__title title">
-                Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie informacje o odbiorze.
+                {title}
             </h1>
             <img src={Decoration} className="hero__decoration--img" alt={"decoration"}/>
         </div>
@@ -81,22 +118,25 @@ function Step6() {
 export const Form = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const [checkboxes, setCheckboxes] = useState([false, false, false, false, false]);
+    const [selected, setSelected] = useState("")
     const [message, setMessage] = useState("")
 
     const nextStep = () => {
         let error
 
-        if (currentStep === 1) {
-            error = !checkboxes.includes(true);
+        if (currentStep === 1 && !checkboxes.includes(true)) {
+            error = "Musisz zaznaczyć co najmniej jedną opcje!"
+        }
+
+        if (currentStep === 2 && !selected) {
+            error = "Zaznacz liczbę worków";
         }
 
         if (!error) {
             setMessage("")
             setCurrentStep(currentStep + 1);
         } else {
-            if (currentStep === 1) {
-                setMessage("Musisz zaznaczyć co najmniej jedną opcje!")
-            }
+            setMessage(error)
         }
     }
 
@@ -110,12 +150,12 @@ export const Form = () => {
             {currentStep < 5 && <Important message={dataMessage[currentStep - 1]}/>}
             <section className="form__steps">
                 {currentStep < 5 && <span className={"form__steps-currentStep"}>Krok {currentStep}/4</span>}
-                {currentStep === 1 && <Step1 checkboxes={checkboxes} setCheckboxes={setCheckboxes}/>}
-                {currentStep === 2 && <Step2/>}
-                {currentStep === 3 && <Step3/>}
-                {currentStep === 4 && <Step4/>}
-                {currentStep === 5 && <Step5/>}
-                {currentStep === 6 && <Step6/>}
+                {currentStep === 1 && <Step1 title={titles[0]} checkboxes={checkboxes} setCheckboxes={setCheckboxes}/>}
+                {currentStep === 2 && <Step2 title={titles[1]} selected={selected} setSelected={setSelected}/>}
+                {currentStep === 3 && <Step3 title={titles[2]}/>}
+                {currentStep === 4 && <Step4 title={titles[3]}/>}
+                {currentStep === 5 && <Step5 title={titles[4]}/>}
+                {currentStep === 6 && <Step6 title={titles[5]}/>}
                 {message && <span className={"form__message"}>{message}</span>}
                 <div className="form__buttons">
                     {currentStep > 1 && (

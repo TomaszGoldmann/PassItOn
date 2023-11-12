@@ -1,0 +1,44 @@
+.select {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  &-text {
+    display: block;
+  }
+
+  &-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    height: 50px;
+    width: 300px;
+    border: 1px solid $font-color-prime;
+  }
+
+  &-value {
+    padding: 0 18px;
+  }
+
+  &-options {
+    position: absolute;
+    right: 0;
+    top: 70px;
+    border: 1px solid $font-color-prime;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-option {
+    display: block;
+    padding: 2px 35px;
+    text-align: center;
+    &:hover{
+      background-color: $font-color-second;
+    }
+  }
+}
